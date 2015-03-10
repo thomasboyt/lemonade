@@ -25,7 +25,7 @@ class ArcShot extends Entity {
 
   update(dt: number) {
     var step = dt / 100;
-    this.radius += 10 * step;
+    this.radius += 20 * step;
   }
 
   draw(ctx: any) {
@@ -48,8 +48,8 @@ class ArcShot extends Entity {
 
     ctx.restore();
 
-    ctx.fillStyle = 'pink';
-    ctx.fillRect(this.center.x - 2.5, this.center.y - 2.5, 5, 5);
+    // ctx.fillStyle = 'pink';
+    // ctx.fillRect(this.center.x - 2.5, this.center.y - 2.5, 5, 5);
   }
 }
 
