@@ -15,7 +15,7 @@ var config = require('./config/game');
 
 var Entity = require('./entities/Entity');
 var UI = require('./entities/UI');
-var Person = require('./entities/Person');
+var Adversary = require('./entities/Adversary');
 var Player = require('./entities/Player');
 
 type AssetMap = {
@@ -44,7 +44,7 @@ class Game {
     this.height = 480;
 
     this.c = window.__coquette__ = new Coquette(this, 'game-canvas', this.width, this.height, 'black');
-    this.c.renderer.getCtx().imageSmoothingEnabled = false;
+    // this.c.renderer.getCtx().imageSmoothingEnabled = false;
 
     setupFullscreen(this.c.inputter.F);
     addRegister(this.c);
@@ -81,35 +81,26 @@ class Game {
 
     this.assets = assets;
     this.audioManager.setAudioMap(assets.audio);
+
+    if (document.location.search.indexOf('skiptitle') !== -1) {
+      setTimeout(() => {
+        this.start();
+      }, 0);
+    }
   }
 
   start() {
     this.fsm.start();
 
-    this.createEntity(Person, {
-      center: { x:320, y:200 },
-      color: '#099'
+    this.createEntity(Adversary, {
+      center: { x:320, y:75 },
     });
 
     this.createEntity(Player, {
-      center: { x:326, y:400 },
-      color: '#f07'
-    });
-  }
-
-  clearWorld() {
-    var entities = [Player, Person];
-
-    entities.forEach((type) => {
-      var items = this.c.entities.all(type);
-      items.forEach((item) => {
-        this.c.entities.destroy(item);
-      });
     });
   }
 
   end() {
-    this.clearWorld();
     this.fsm.end();
   }
 

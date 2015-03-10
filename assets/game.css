@@ -18,11 +18,11 @@ html, body, .container {
   justify-content: center;
 }
 
-#game-canvas {
-  image-rendering: optimizeSpeed;             /* Older versions of FF */
-  image-rendering: -moz-crisp-edges;          /* FF 6.0+ */
-  image-rendering: -webkit-optimize-contrast; /* Safari */
-  image-rendering: -o-crisp-edges;            /* OS X & Windows Opera (12.02+) */
-  image-rendering: pixelated;                 /* Awesome future-browsers */
-  -ms-interpolation-mode: nearest-neighbor;   /* IE */
-}
+/* #game-canvas { */
+/*   image-rendering: optimizeSpeed;             /1* Older versions of FF *1/ */
+/*   image-rendering: -moz-crisp-edges;          /1* FF 6.0+ *1/ */
+/*   image-rendering: -webkit-optimize-contrast; /1* Safari *1/ */
+/*   image-rendering: -o-crisp-edges;            /1* OS X & Windows Opera (12.02+) *1/ */
+/*   image-rendering: pixelated;                 /1* Awesome future-browsers *1/ */
+/*   -ms-interpolation-mode: nearest-neighbor;   /1* IE *1/ */
+/* } */
