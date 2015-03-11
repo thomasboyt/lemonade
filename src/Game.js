@@ -17,6 +17,7 @@ var Entity = require('./entities/Entity');
 var UI = require('./entities/UI');
 var Adversary = require('./entities/Adversary');
 var Player = require('./entities/Player');
+var PlayField = require('./entities/PlayField');
 
 type AssetMap = {
   images: {
@@ -92,11 +93,29 @@ class Game {
   start() {
     this.fsm.start();
 
-    this.createEntity(Adversary, {
-      center: { x:320, y:75 },
+    var pivotCenter = {
+      x: 320,
+      y: 75
+    };
+
+    var maxRadius = 385;
+    var maxAngle = 55;
+
+    var adversary = this.createEntity(Adversary, {
+      center: pivotCenter
+    });
+
+    this.createEntity(PlayField, {
+      center: pivotCenter,
+      radius: maxRadius,
+      maxAngle: maxAngle
     });
 
     this.createEntity(Player, {
+      pivotX: pivotCenter.x,
+      pivotY: pivotCenter.y,
+      maxRadius: maxRadius,
+      maxAngle: maxAngle
     });
   }
 

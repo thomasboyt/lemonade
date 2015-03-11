@@ -3,6 +3,10 @@
 var Entity = require('../Entity');
 var math = require('coquette-common/lib/math');
 
+/**
+ * A flat arc that expands as it nears the player.
+ */
+
 class ArcShot extends Entity {
   width: number;
   angle: number;

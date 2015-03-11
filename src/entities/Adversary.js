@@ -12,6 +12,8 @@ class Adversary extends Entity {
       y: settings.center.y
     };
 
+    this.zindex = 101;
+
     this.radius = 40;
     this.shootArc(90, 60);
   }
